@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ContactForm } from '../../types';
+import axios from 'axios';
 import './ContactPage.css';
 
 const ContactPage: React.FC = () => {
@@ -35,38 +36,20 @@ const ContactPage: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
-      // Prepare form data for Web3Forms (free and easy to set up)
+      // Prepare form data for Web3Forms
       const formDataToSend = {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
         service: formData.service || 'General Inquiry',
         message: formData.message,
-        access_key: 'e25526b0-7443-47fa-8961-d792e5280bc4' // Get this from web3forms.com
+        access_key: 'e25526b0-7443-47fa-8961-d792e5280bc4'
       };
 
-      // TEMPORARY: Simulate email sending while you set up Web3Forms
-      // Replace this with actual Web3Forms API call once you have your access key
-      console.log('Form data to be sent:', formDataToSend);
+      // Send email using Web3Forms API
+      const response = await axios.post('https://api.web3forms.com/submit', formDataToSend);
       
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // For now, log the email that would be sent
-      console.log(`
-        EMAIL TO: nopimsyouthgroup@gmail.com
-        FROM: ${formData.email}
-        SUBJECT: New Inquiry: ${formData.service || 'General'} - ${formData.name}
-        
-        MESSAGE:
-        Name: ${formData.name}
-        Email: ${formData.email}
-        Phone: ${formData.phone}
-        Service Interest: ${formData.service || 'General Inquiry'}
-        
-        ${formData.message}
-      `);
-      
+      console.log('Email sent successfully:', response.data);
       setSubmitStatus('success');
       
       // Reset form after successful submission
@@ -138,7 +121,7 @@ const ContactPage: React.FC = () => {
             <div className="contact-form-section">
               <div className="form-header">
                 <h2>Send Us a Message</h2>
-                <p>Fill out the form below and your message will be sent directly to our inbox.</p>
+                <p>Fill out the form below and your message will be sent directly to our email inbox.</p>
               </div>
               
               <form className="contact-form" onSubmit={handleSubmit}>
@@ -223,7 +206,7 @@ const ContactPage: React.FC = () => {
 
                 {submitStatus === 'success' && (
                   <div className="form-message success">
-                    ✅ Message processed successfully! Check browser console for details. Email service setup required for live delivery.
+                    ✅ Message sent successfully! We'll get back to you within 24 hours.
                   </div>
                 )}
 
