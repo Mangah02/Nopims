@@ -34,19 +34,39 @@ const ContactPage: React.FC = () => {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    // Simulate form submission
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      console.log('Form submitted:', formData);
+      // Create email content
+      const subject = encodeURIComponent(`New Inquiry: ${formData.service || 'General'} - ${formData.name}`);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\n` +
+        `Email: ${formData.email}\n` +
+        `Phone: ${formData.phone}\n` +
+        `Service Interest: ${formData.service || 'General Inquiry'}\n\n` +
+        `Message:\n${formData.message}`
+      );
+
+      // Open email client with pre-filled information
+      const mailtoLink = `mailto:nopimsyouthgroup@gmail.com?subject=${subject}&body=${body}`;
+      window.location.href = mailtoLink;
+
+      // Simulate processing for better UX
+      await new Promise(resolve => setTimeout(resolve, 1000));
       setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        message: '',
-        service: ''
-      });
+      
+      // Reset form after a delay
+      setTimeout(() => {
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          message: '',
+          service: ''
+        });
+        setSubmitStatus('idle');
+      }, 2000);
+      
     } catch (error) {
+      console.error('Failed to open email client:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -105,7 +125,7 @@ const ContactPage: React.FC = () => {
             <div className="contact-form-section">
               <div className="form-header">
                 <h2>Send Us a Message</h2>
-                <p>Fill out the form below and we'll get back to you within 24 hours.</p>
+                <p>Fill out the form below and click "Send Message" to open your email client with pre-filled details.</p>
               </div>
               
               <form className="contact-form" onSubmit={handleSubmit}>
@@ -190,7 +210,7 @@ const ContactPage: React.FC = () => {
 
                 {submitStatus === 'success' && (
                   <div className="form-message success">
-                    ✅ Thank you for your message! We'll get back to you soon.
+                    ✅ Opening your email client... Please send the email to complete your inquiry!
                   </div>
                 )}
 
