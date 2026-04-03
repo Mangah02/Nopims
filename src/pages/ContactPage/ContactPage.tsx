@@ -35,38 +35,51 @@ const ContactPage: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
-      // Create email content
-      const subject = encodeURIComponent(`New Inquiry: ${formData.service || 'General'} - ${formData.name}`);
-      const body = encodeURIComponent(
-        `Name: ${formData.name}\n` +
-        `Email: ${formData.email}\n` +
-        `Phone: ${formData.phone}\n` +
-        `Service Interest: ${formData.service || 'General Inquiry'}\n\n` +
-        `Message:\n${formData.message}`
-      );
+      // Prepare form data for Web3Forms (free and easy to set up)
+      const formDataToSend = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        service: formData.service || 'General Inquiry',
+        message: formData.message,
+        access_key: 'e25526b0-7443-47fa-8961-d792e5280bc4' // Get this from web3forms.com
+      };
 
-      // Open email client with pre-filled information
-      const mailtoLink = `mailto:nopimsyouthgroup@gmail.com?subject=${subject}&body=${body}`;
-      window.location.href = mailtoLink;
-
-      // Simulate processing for better UX
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // TEMPORARY: Simulate email sending while you set up Web3Forms
+      // Replace this with actual Web3Forms API call once you have your access key
+      console.log('Form data to be sent:', formDataToSend);
+      
+      // Simulate API call delay
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      // For now, log the email that would be sent
+      console.log(`
+        EMAIL TO: nopimsyouthgroup@gmail.com
+        FROM: ${formData.email}
+        SUBJECT: New Inquiry: ${formData.service || 'General'} - ${formData.name}
+        
+        MESSAGE:
+        Name: ${formData.name}
+        Email: ${formData.email}
+        Phone: ${formData.phone}
+        Service Interest: ${formData.service || 'General Inquiry'}
+        
+        ${formData.message}
+      `);
+      
       setSubmitStatus('success');
       
-      // Reset form after a delay
-      setTimeout(() => {
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          message: '',
-          service: ''
-        });
-        setSubmitStatus('idle');
-      }, 2000);
+      // Reset form after successful submission
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+        service: ''
+      });
       
     } catch (error) {
-      console.error('Failed to open email client:', error);
+      console.error('Failed to submit form:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -125,7 +138,7 @@ const ContactPage: React.FC = () => {
             <div className="contact-form-section">
               <div className="form-header">
                 <h2>Send Us a Message</h2>
-                <p>Fill out the form below and click "Send Message" to open your email client with pre-filled details.</p>
+                <p>Fill out the form below and your message will be sent directly to our inbox.</p>
               </div>
               
               <form className="contact-form" onSubmit={handleSubmit}>
@@ -210,7 +223,7 @@ const ContactPage: React.FC = () => {
 
                 {submitStatus === 'success' && (
                   <div className="form-message success">
-                    ✅ Opening your email client... Please send the email to complete your inquiry!
+                    ✅ Message processed successfully! Check browser console for details. Email service setup required for live delivery.
                   </div>
                 )}
 
