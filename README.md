@@ -1,2 +1,2 @@
 # 
-this project entile bout nopims youth group
+this project entile about nopims youth group
