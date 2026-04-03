@@ -33,13 +33,13 @@ const Footer: React.FC = () => {
             <h3 className="footer-title">Contact Info</h3>
             <div className="contact-info">
               <div className="contact-item">
-                <strong>Email:</strong> info@selfhelpgroup.com
+                <strong>Email:</strong> nopimsyouthgroup@gmail.com
               </div>
               <div className="contact-item">
-                <strong>Phone:</strong> +254 700 000 000
+                <strong>Phone:</strong> +254 757 076 664
               </div>
               <div className="contact-item">
-                <strong>WhatsApp:</strong> +254 700 000 000
+                <strong>WhatsApp:</strong> +254 757 076 664
               </div>
             </div>
           </div>
