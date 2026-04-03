@@ -36,13 +36,13 @@ const ContactPage: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
-      // Prepare form data for Web3Forms
+      // Prepare form data for Web3Forms with standard field names
       const formDataToSend = {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
-        service: formData.service || 'General Inquiry',
-        message: formData.message,
+        subject: `New Inquiry: ${formData.service || 'General'} - ${formData.name}`,
+        message: `Service Interest: ${formData.service || 'General Inquiry'}\n\n${formData.message}`,
         access_key: 'e25526b0-7443-47fa-8961-d792e5280bc4'
       };
 
