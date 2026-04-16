@@ -71,7 +71,7 @@ const HomePage: React.FC = () => {
     },
     {
       id: '2',
-      name: 'Michael Chen',
+      name: 'Michael Gicheru',
       company: 'TechStart Inc.',
       quote: 'Outstanding technology support and innovative solutions. They helped us modernize our entire infrastructure.',
       rating: 5

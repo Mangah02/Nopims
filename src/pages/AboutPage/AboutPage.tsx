@@ -38,27 +38,27 @@ const AboutPage: React.FC = () => {
 
   const team = [
     {
-      name: 'John Mwangi',
-      role: 'Founder & CEO',
-      experience: '15+ years experience in business consultancy and project management',
+      name: 'Hannar Wambui',
+      role: ' CEO',
+      experience: '5+ years experience in business consultancy and project management',
       expertise: 'Strategic Planning, Business Development'
     },
     {
-      name: 'Sarah Kamau',
+      name: 'Peter Wambugu',
       role: 'Operations Director',
-      experience: '12+ years in operations management and quality assurance',
+      experience: '3+ years in operations management and quality assurance',
       expertise: 'Process Optimization, Team Leadership'
     },
     {
-      name: 'David Ochieng',
+      name: 'Joel manga',
       role: 'Technical Director',
-      experience: '10+ years in IT solutions and digital transformation',
+      experience: '6+ years in IT solutions and digital transformation',
       expertise: 'Software Development, Systems Integration'
     },
     {
-      name: 'Grace Wanjiru',
+      name: 'Simon Chege',
       role: 'Client Relations Manager',
-      experience: '8+ years in customer service and relationship management',
+      experience: '4+ years in customer service and relationship management',
       expertise: 'Client Management, Service Delivery'
     }
   ];
