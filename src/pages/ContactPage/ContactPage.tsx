@@ -329,15 +329,19 @@ const ContactPage: React.FC = () => {
         <div className="container">
           <div className="map-header">
             <h2>Visit Our Office</h2>
-            <p>Conveniently located in the heart of Nairobi's business district</p>
+            <p>Conveniently located in Nyahururu, Laikipia, Kenya</p>
           </div>
-          <div className="map-placeholder">
-            <div className="map-content">
-              <div className="map-icon">🗺️</div>
-              <h3>Interactive Map</h3>
-              <p>123 Business Center, Nairobi, Kenya</p>
-              <p>Find us easily with Google Maps or Waze</p>
-            </div>
+          <div className="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39610.54587612345!2d36.35!3d0.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182aa00000000001%3A0x0!2zMMKwMDInNTAuMCJOIDM2wrAyMCcwMC4wIkU!5e0!3m2!1sen!2ske!4v1600000000000!5m2!1sen!2ske"
+              width="100%"
+              height="400"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Nyahururu, Laikipia, Kenya"
+            ></iframe>
           </div>
         </div>
       </section>
