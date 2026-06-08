@@ -19,7 +19,7 @@ const Header: React.FC = () => {
       <div className="container">
         <div className="header-content">
           <Link to="/" className="logo">
-            <div className="logo-icon">NYG</div>
+            <div className="logo-icon"></div>
             <span className="logo-text">NOPIMS YOUTH GROUP</span>
           </Link>
 
