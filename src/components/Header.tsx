@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import logo from '../assets/logo.png';
 import './Header.css';
 
 const Header: React.FC = () => {
@@ -19,7 +20,7 @@ const Header: React.FC = () => {
       <div className="container">
         <div className="header-content">
           <Link to="/" className="logo">
-            <div className="logo-icon"></div>
+            <img src={logo} alt="NOPIMS YOUTH GROUP Logo" className="logo-icon" />
             <span className="logo-text">NOPIMS YOUTH GROUP</span>
           </Link>
 
