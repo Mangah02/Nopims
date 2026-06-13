@@ -1,11 +1,11 @@
 # Email Setup Instructions for NOPIMS Youth Group Website
 
 ## ✅ IMPLEMENTATION COMPLETE
-The contact form is now fully functional and sending emails directly to `nopimsyouthgroup@gmail.com` using Web3Forms API.
+The contact form is now fully functional and sending emails directly to `emails` using Web3Forms API.
 
 ## Current Configuration
 - **Service**: Web3Forms
-- **Access Key**: e25526b0-7443-47fa-8961-d792e5280bc4
+- **Access Key**: XXXXXX
 - **Recipient Email**: nopimsyouthgroup@gmail.com
 - **Status**: ✅ LIVE and WORKING
 
